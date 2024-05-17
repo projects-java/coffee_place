@@ -1,0 +1,52 @@
+#DataBase config
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /coffeePlace
+      settings:
+        trace: false
+        web-allow-others: false
+  datasource:
+    url: jdbc:h2:mem:coffeePlace;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: bestCoffeeEver
+    password: bestCoffeeEver
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+        use_sql_comments: true
+        format_sql: true
+    defer-datasource-initialization: true
+
+#Server port
+server:
+  port: 8085
+
+#Other namings
+service:
+  order:
+    descTopping: Congrats! one of your toppings has become a gift
+    descDiscount: Congrats! 25% discount has appended
+    orderDesc: disSatisfactory!
+    exception:
+      orderNotFound: No such order found!
+    item:
+      exception:
+        orderItemNotFound: No such order item found!
+  cart:
+    oneDrinkIsNeeded: You should at least add one drink to the item!
+    exception:
+      cartNotFound: No such cart found!
+  cartItem:
+    exception:
+      cartItemNotFound: No such cartItem found!
+  product:
+      exception:
+        productNotFound: Wrong product id found or no such product found!
+  customer:
+    exception:
+      customerNotFound: No such customer found!
